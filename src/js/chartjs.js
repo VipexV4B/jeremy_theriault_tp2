@@ -15,7 +15,7 @@ const series = [
   { x: "2025-05-08T00:00:00", y: 264784.2 }
 ];
 
-const data = [
+const datas = [
   { x: "2025-04-08T00:00:00", y: 0.0 },
   { x: "2025-04-09T00:00:00", y: 41856.9 },
   { x: "2025-04-10T00:00:00", y: 682955.1 },
@@ -49,13 +49,13 @@ const data = [
   { x: "2025-05-08T00:00:00", y: 276700.7 }
 ];
 
-let graphique = new Chart(document.querySelector("canvas").getContext("2d"), {
+let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
   type: "line",
   data: {
     datasets: [
       {
         label: "Battlefield 6",
-        data: data,
+        data: datas,
         borderWidth: 2,
         tension: 0.4, // 0 linéaire, 0.5 smooth
         fill: true,
@@ -175,12 +175,102 @@ let graphique = new Chart(document.querySelector("canvas").getContext("2d"), {
 // Décommenter pour animer
 //
  setInterval(() => {
-   for (let ds of graphique.data.datasets) {
+   for (let ds of graphiques.data.datasets) {
      for (let i = 0; i < ds.data.length; i++) {
        const currentY = parseFloat(ds.data[i].y);
        const random = Math.round(Math.random() * 20000 - 10000);
        ds.data[i].y = Math.max(0, currentY + random);
      }
    }
-   graphique.update();
+   graphiques.update();
  }, 100);
+
+
+const data = [];
+
+// Ici on ajoute des données bidons dans le tableau
+for (let i = 0; i < 10; i++) {
+  data.push({
+    x: i * 1000 + 1000,
+    y: Math.floor(Math.random() * 2000)
+  });
+}
+
+let graphique = new Chart(document.querySelector(".chart").getContext("2d"), {
+  type: "line",
+  data: {
+    datasets: [
+      {
+        label: "-",
+        data: data,
+        borderWidth: 2,
+        tension: 0.3, // 0 linéaire, 0.5 smooth
+        fill: true,
+        borderColor: "rgba(239, 85, 82, 1)",
+        backgroundColor: "rgba(239, 85, 82, 0)",
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    animation: {
+      duration: 10000 // 20x plus lent que la modification
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      title: {
+        display: false
+      },
+      legend: { display: false }
+    },
+    scales: {
+      x: {
+        type: "linear",
+        title: {
+          display: false
+        },
+        grid: {
+          display: false
+        },
+        ticks: {
+          display: false
+        }
+      },
+
+      y: {
+        type: "linear",
+        title: {
+          display: false
+        },
+        grid: {
+          display: false
+        },
+        ticks: {
+          display: false,
+          maxTicksLimit: 3
+        }
+      }
+    }
+  }
+});
+
+// En événement
+document.body.addEventListener("click", () => {
+  for (const ds of graphique.data.datasets) {
+    for (let i = 0; i < ds.data.length; i++) {
+      ds.data[i].y = Math.round(Math.random() * 2000);
+    }
+  }
+  graphique.update();
+});
+
+// En temps
+setInterval(() => {
+  for (let ds of graphique.data.datasets) {
+    for (let i = 0; i < ds.data.length; i++) {
+      ds.data[i].y = Math.round(Math.random() * 2000);
+    }
+  }
+  graphique.update();
+}, 500);
