@@ -1,0 +1,206 @@
+/* ========================= */
+/*     STYLE GLOBAL FUTURISTE */
+/* ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Orbitron, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #02021a;
+  color: #d6e8ff;
+}
+
+/* Lumière animée pleine page */
+.neon-bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 100, 255, 0.25), transparent 75%);
+  animation: bgMove 14s infinite alternate ease-in-out;
+  filter: blur(160px);
+  z-index: -1;
+}
+
+@keyframes bgMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(12%, -12%);
+  }
+  100% {
+    transform: translate(-8%, 15%);
+  }
+}
+
+/* ========================= */
+/*  GRID QUI PREND TOUTE LA PAGE */
+/* ========================= */
+
+.dashboard {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  padding: 25px;
+
+  grid-template-columns: 2fr 1.4fr 2fr;
+  grid-template-rows: 1.4fr 1fr 1fr 1.2fr;
+  grid-gap: 22px;
+}
+
+.graph {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.zdog-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* ========================= */
+/*  BLOCS FUTURISTES */
+/* ========================= */
+
+.box {
+  background: rgba(0, 15, 50, 0.55);
+  border: 2px solid rgba(0, 140, 255, 0.6);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 0 14px rgba(0, 150, 255, 0.8), inset 0 0 20px rgba(0, 150, 255, 0.35);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bordure futuriste animée */
+.box::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, rgba(0, 120, 255, 0.9), rgba(150, 0, 255, 0.9), rgba(0, 120, 255, 0.9));
+  filter: blur(13px);
+  animation: borderRotate 6s linear infinite;
+  z-index: -1;
+}
+
+@keyframes borderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================= */
+/*  PLACEMENT EXACT COMME L’IMAGE */
+/* ========================= */
+
+.graph {
+  grid-column: 1;
+  grid-row: 1;
+}
+.circle-container {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+}
+.slider {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.visuel:first-of-type {
+  grid-column: 1;
+  grid-row: 2;
+}
+.visuel:last-of-type {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.middle {
+  grid-column: 2;
+  grid-row: 2;
+}
+.chart {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.long {
+  grid-column: 3;
+  grid-row: 2;
+}
+.map {
+  grid-column: 3;
+  grid-row: 3 / span 2;
+}
+
+/* ========================= */
+/*   CERCLES FUTURISTES */
+/* ========================= */
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  border-radius: 50%;
+  border: 4px solid #4da8ff;
+  box-shadow: 0 0 20px #4da8ff;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.circle.big {
+  width: 180px;
+  height: 180px;
+  background: rgba(0, 25, 70, 0.7);
+}
+
+.circle.small {
+  width: 55px;
+  height: 55px;
+  margin: 0 14px;
+}
+
+.label {
+  position: absolute;
+  top: -18px;
+  font-size: 20px;
+  color: #7abbff;
+  text-shadow: 0 0 15px #4da8ff;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 18px #4da8ff;
+  }
+  50% {
+    box-shadow: 0 0 40px #8b3cff;
+  }
+  100% {
+    box-shadow: 0 0 18px #4da8ff;
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <title>Dashboard Futuriste</title>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "animejs": "./node_modules/animejs/dist/bundles/anime.esm.js",
+          "chart.js": "./node_modules/chart.js/auto",
+          "@kurkle/color": "./node_modules/@kurkle/color/dist/color.esm.js",
+          "maplibre-gl": "https://esm.sh/maplibre-gl@5.13.0",
+          "zzz": "https://esm.sh/zdog",
+          "tone.js": "https://esm.sh/tone@15.1.22",
+          "typed.js": "./node_modules/typed.js/dist/typed.module.js"
+        }
+      }
+    </script>
+
+    <script type="module" src="./src/js/chartjs.js"></script>
+    <script type="module" src="./src/js/animejs.js"></script>
+    <script type="module" src="./src/js/bootstrap.js"></script>
+    <script type="module" src="./src/js/maplibre.js"></script>
+    <script type="module" src="./src/js/vfx.js"></script>
+    <script type="module" src="./src/js/animejs.js"></script>
+    <script type="module" src="./src/js/tonejs.js"></script>
+  </head>
+  <body>
+    <div class="neon-bg"></div>
+
+    <div class="dashboard">
+      <div class="box graph">
+        <canvas class="graph"></canvas>
+      </div>
+
+      <div class="circle-container">
+        <div class="circle big">CHRONO</div>
+        <div class="circle small"></div>
+        <div class="circle small"></div>
+        <span class="label">DIAGRAMME</span>
+      </div>
+
+      <div class="box slider">SLIDER</div>
+
+      <div class="box">
+          <canvas class="zdog-canvas"></canvas>
+      </div>
+      <div class="box visuel">Élément Visuel<br />Animée</div>
+
+      <div class="box middle"></div>
+
+      <div class="box chart">CHART</div>
+
+      <div class="box long"></div>
+
+      <div class="box map">MAP</div>
+    </div>
+  </body>
+</html>
