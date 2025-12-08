@@ -1,4 +1,4 @@
-import Zdog from "https://esm.sh/zdog";
+import Zdog from "zzz";
 
 const illo = new Zdog.Illustration({
   element: ".zdog-canvas",
