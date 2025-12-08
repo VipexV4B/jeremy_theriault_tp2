@@ -37,20 +37,38 @@
       </div>
 
       <div class="circle-container">
-        <div class="circle big">CHRONO</div>
-        <div class="circle small"></div>
-        <div class="circle small"></div>
-        <span class="label">DIAGRAMME</span>
+        <div class="cricle big chart-container">
+          <canvas></canvas>
+        </div>
+        <div class="d-flex circle-container-small">
+          <div class="circle small"></div>
+          <div class="circle small"></div>
+        </div>
       </div>
 
-      <div class="box slider">SLIDER</div>
+      <div class="box">
+        <select id="instrument" class="form-select my-2">
+          <option value="Synth">Synth (par défaut)</option>
+          <option value="AMSynth">AMSynth</option>
+          <option value="FMSynth">FMSynth</option>
+          <option value="DuoSynth">DuoSynth</option>
+          <option value="MonoSynth">MonoSynth</option>
+          <option value="MembraneSynth">MembraneSynth</option>
+          <option value="MetalSynth">MetalSynth</option>
+          <option value="PluckSynth">PluckSynth</option>
+        </select>
+
+        <button class="btn btn-primary"><i class="bi bi-play-circle"></i> Play</button>
+      </div>
 
       <div class="box">
         <canvas class="zdog-canvas"></canvas>
       </div>
       <div class="box visuel">Élément Visuel<br />Animée</div>
 
-      <div class="box middle"></div>
+      <div class="box middle chart-container">
+        <canvas class="chart-container"></canvas>
+      </div>
 
       <div class="box">
         <canvas class="chart"></canvas>

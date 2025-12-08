@@ -12,7 +12,7 @@ const series = [
   { x: "2025-05-05T00:00:00", y: 221405.2 },
   { x: "2025-05-06T00:00:00", y: 223778.3 },
   { x: "2025-05-07T00:00:00", y: 241896.4 },
-  { x: "2025-05-08T00:00:00", y: 264784.2 }
+  { x: "2025-05-08T00:00:00", y: 264784.2 },
 ];
 
 const datas = [
@@ -46,7 +46,7 @@ const datas = [
   { x: "2025-05-05T00:00:00", y: 251258.6 },
   { x: "2025-05-06T00:00:00", y: 244285.7 },
   { x: "2025-05-07T00:00:00", y: 243364.2 },
-  { x: "2025-05-08T00:00:00", y: 276700.7 }
+  { x: "2025-05-08T00:00:00", y: 276700.7 },
 ];
 
 let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
@@ -61,7 +61,7 @@ let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
         fill: true,
         borderColor: "rgba(239, 85, 82, 1)",
         backgroundColor: "rgba(239, 85, 82, 0.1)",
-        pointRadius: 0
+        pointRadius: 0,
       },
       {
         label: "ARC Raiders",
@@ -71,9 +71,9 @@ let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
         fill: true,
         borderColor: "rgba(85, 239, 85, 1)",
         backgroundColor: "rgba(85, 239, 85, 0.1)",
-        pointRadius: 0
-      }
-    ]
+        pointRadius: 0,
+      },
+    ],
   },
   options: {
     locale: "fr-CA",
@@ -82,8 +82,8 @@ let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
     plugins: {
       title: {
         display: true,
-        text: "Joueurs simultanés (SteamDB)"
-      }
+        text: "Joueurs simultanés (SteamDB)",
+      },
       // legend: { display: false }
     },
     scales: {
@@ -97,22 +97,22 @@ let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
           font: {
             family: "Arial",
             size: 12,
-            weight: "600"
+            weight: "600",
           },
-          padding: { top: 15 }
+          padding: { top: 15 },
         },
 
         // Grille
         grid: {
           color: "rgba(222, 222, 222, 0.2)", // Couleur des lignes
-          lineWidth: 1 // Largeur des lignes
+          lineWidth: 1, // Largeur des lignes
         },
 
         // Bordure de l’axe
         border: {
           color: "rgba(222, 222, 222, 0.2)",
           width: 2,
-          dash: [0, 0] // Lignes à l'intérieur
+          dash: [0, 0], // Lignes à l'intérieur
         },
 
         // Gradations / étiquettes
@@ -122,12 +122,12 @@ let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
           font: {
             family: "Arial",
             size: 11,
-            weight: "500"
+            weight: "500",
           },
           maxTicksLimit: 5,
           mirror: false,
-          z: 1
-        }
+          z: 1,
+        },
       },
 
       y: {
@@ -140,14 +140,14 @@ let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
           font: {
             family: "Arial",
             size: 12,
-            weight: "600"
+            weight: "600",
           },
-          padding: { bottom: 20 }
+          padding: { bottom: 20 },
         },
 
         grid: {
           color: "rgba(222, 222, 222, 0.2)",
-          lineWidth: 1
+          lineWidth: 1,
         },
 
         ticks: {
@@ -156,35 +156,34 @@ let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
           font: {
             family: "Arial",
             size: 11,
-            weight: "500"
+            weight: "500",
           },
           maxTicksLimit: 5,
-          mirror: false
+          mirror: false,
         },
 
         border: {
           color: "rgba(222, 222, 222, 0.2)",
           width: 2,
-          dash: [0, 0] // Lignes à l'intérieur
-        }
-      }
-    }
-  }
+          dash: [0, 0], // Lignes à l'intérieur
+        },
+      },
+    },
+  },
 });
 
 // Décommenter pour animer
 //
- setInterval(() => {
-   for (let ds of graphiques.data.datasets) {
-     for (let i = 0; i < ds.data.length; i++) {
-       const currentY = parseFloat(ds.data[i].y);
-       const random = Math.round(Math.random() * 20000 - 10000);
-       ds.data[i].y = Math.max(0, currentY + random);
-     }
-   }
-   graphiques.update();
- }, 100);
-
+setInterval(() => {
+  for (let ds of graphiques.data.datasets) {
+    for (let i = 0; i < ds.data.length; i++) {
+      const currentY = parseFloat(ds.data[i].y);
+      const random = Math.round(Math.random() * 20000 - 10000);
+      ds.data[i].y = Math.max(0, currentY + random);
+    }
+  }
+  graphiques.update();
+}, 100);
 
 const data = [];
 
@@ -192,7 +191,7 @@ const data = [];
 for (let i = 0; i < 10; i++) {
   data.push({
     x: i * 1000 + 1000,
-    y: Math.floor(Math.random() * 2000)
+    y: Math.floor(Math.random() * 2000),
   });
 }
 
@@ -208,51 +207,51 @@ let graphique = new Chart(document.querySelector(".chart").getContext("2d"), {
         fill: true,
         borderColor: "rgba(239, 85, 82, 1)",
         backgroundColor: "rgba(239, 85, 82, 0)",
-        pointRadius: 0
-      }
-    ]
+        pointRadius: 0,
+      },
+    ],
   },
   options: {
     animation: {
-      duration: 10000 // 20x plus lent que la modification
+      duration: 10000, // 20x plus lent que la modification
     },
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       title: {
-        display: false
+        display: false,
       },
-      legend: { display: false }
+      legend: { display: false },
     },
     scales: {
       x: {
         type: "linear",
         title: {
-          display: false
+          display: false,
         },
         grid: {
-          display: false
+          display: false,
         },
         ticks: {
-          display: false
-        }
+          display: false,
+        },
       },
 
       y: {
         type: "linear",
         title: {
-          display: false
+          display: false,
         },
         grid: {
-          display: false
+          display: false,
         },
         ticks: {
           display: false,
-          maxTicksLimit: 3
-        }
-      }
-    }
-  }
+          maxTicksLimit: 3,
+        },
+      },
+    },
+  },
 });
 
 // En événement
@@ -269,8 +268,8 @@ document.body.addEventListener("click", () => {
 setInterval(() => {
   for (let ds of graphique.data.datasets) {
     for (let i = 0; i < ds.data.length; i++) {
-      ds.data[i].y = Math.round(Math.random() * 2000);
+      ds.data[i].y = Math.round(Math.random() * 50000);
     }
   }
   graphique.update();
-}, 500);
+}, 1000);

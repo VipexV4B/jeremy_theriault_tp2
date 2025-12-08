@@ -3,19 +3,17 @@ import Zdog from "https://esm.sh/zdog";
 const illo = new Zdog.Illustration({
   element: ".zdog-canvas",
   resize: true,
+  dragRotate: true,
 });
 
-const circ = new Zdog.Ellipse({
+new Zdog.Ellipse({
   addTo: illo,
   diameter: 100,
-  stroke: 10,
-  color: "#E94",
+  stroke: 40,
+  color: "#4E9",
 });
 
 function animate() {
-  illo.rotate.y += 0.03;
-  illo.rotate.x += 0.03;
-
   illo.updateRenderGraph();
   requestAnimationFrame(animate);
 }
