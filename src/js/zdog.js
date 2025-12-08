@@ -2,18 +2,20 @@ import Zdog from "zzz";
 
 const illo = new Zdog.Illustration({
   element: ".zdog-canvas",
-  resize: true,
-  dragRotate: true,
+  resize: true
 });
 
-new Zdog.Ellipse({
+const circ = new Zdog.Ellipse({
   addTo: illo,
-  diameter: 100,
-  stroke: 40,
-  color: "#4E9",
+  diameter: 270,
+  stroke: 50,
+  color: "rgba(20, 20, 191, 0.27)"
 });
 
 function animate() {
+  illo.rotate.y += 0.03;
+  illo.rotate.x += 0.03;
+
   illo.updateRenderGraph();
   requestAnimationFrame(animate);
 }

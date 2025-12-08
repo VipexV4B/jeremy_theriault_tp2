@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/css/style.css" />
     <title>Dashboard Futuriste</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
 
     <script type="importmap">
       {
         "imports": {
-          "animejs": "./node_modules/animejs/dist/bundles/anime.esm.js",
+          "animejs": "./node_modules/animejs/dist/bundles/anime.esm.min.js",
           "chart.js": "./node_modules/chart.js/auto",
           "@kurkle/color": "./node_modules/@kurkle/color/dist/color.esm.js",
           "maplibre-gl": "https://esm.sh/maplibre-gl@5.13.0",
@@ -65,7 +67,9 @@
       <div class="box">
         <canvas class="zdog-canvas"></canvas>
       </div>
-      <div class="box visuel">Élément Visuel<br />Animée</div>
+      <div class="box anim-box">
+        <div class="dot"></div>
+      </div>
 
       <div class="box middle chart-container">
         <canvas class="chart-container"></canvas>
