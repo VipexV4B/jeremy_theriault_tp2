@@ -14,8 +14,8 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #02021a;
-  color: #d6e8ff;
+  background: #02021a !important;
+  color: #d6e8ff !important;
 }
 
 /* Lumière animée pleine page */
