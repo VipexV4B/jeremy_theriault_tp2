@@ -1,9 +1,23 @@
-import { animate } from "animejs";
+import { animate, irregular, utils } from 'animejs';
 
-animate(".dot", {
-  x: [200, -200, 100, -200],
-  y: [50, -50,],
-  scale: [1, 1.5, 0.7, 1.5],
+animate('.balai', {
+  rotate: 360,
   loop: true,
-  alternate: true, // Effet ping-pong (aller-retour)
+  duration: 1000 * 5,
+  ease: "linear",
 });
+
+animate(".onde", {
+    scale: [0, 1],
+    duration: 1000 * 3,
+    loop: true
+})
+animate(".obj", {
+    x: [10, 50, 4, 10, 100, 70,-70, 0],
+    y: [10, -50, 4, -100, 4, 50,0],
+    opacity: [0, 1, 0.5, 1, 0],
+    delay: () => utils.random(100, 200, 10),
+    ease: irregular(6,3),
+    duration: 3000,
+    loop:true,
+})

@@ -1,54 +1,17 @@
 import * as Tone from "tone.js";
 
-const notes = ["C4", "E4", "G4", "B4", "A4", "G4", "E4", "C4"];
+const synth = new Tone.Synth().toDestination();
 
-const instruments = {
-  Synth: new Tone.Synth().toDestination(),
-  AMSynth: new Tone.AMSynth().toDestination(),
-  FMSynth: new Tone.FMSynth().toDestination(),
-  DuoSynth: new Tone.DuoSynth().toDestination(),
-  MonoSynth: new Tone.MonoSynth().toDestination(),
-  MembraneSynth: new Tone.MembraneSynth().toDestination(),
-  MetalSynth: new Tone.MetalSynth().toDestination(),
-  PluckSynth: new Tone.PluckSynth().toDestination(),
-};
-
-let currentInstrument = instruments.Synth;
-const sequence = new Tone.Sequence(
-  (time, note) => {
-    currentInstrument.triggerAttackRelease(note, "8n", time);
-  },
-  notes,
-  "8n"
-);
-
-let isPlaying = false;
-const btn = document.querySelector("button");
-const select = document.querySelector("#instrument");
-
-btn.addEventListener("click", async () => {
+document.querySelector("button").addEventListener("click", async () => {
   await Tone.start();
-  await Tone.loaded();
 
-  if (!isPlaying) {
-    // Petit reset
-    Tone.Transport.stop();
-    Tone.Transport.position = 0;
-    sequence.stop();
-
-    sequence.start(0);
-    Tone.Transport.start();
-    isPlaying = true;
-    btn.innerHTML = `<i class="bi bi-pause-circle"></i> Stop`;
-  } else {
-    sequence.stop();
-    Tone.Transport.stop();
-    isPlaying = false;
-    btn.innerHTML = `<i class="bi bi-play-circle"></i> Play`;
-  }
-});
-
-select.addEventListener("change", (e) => {
-  const name = e.target.value;
-  currentInstrument = instruments[name];
+  const now = Tone.now();
+  synth.triggerAttackRelease("C4", "8n", now + 0.0);
+  synth.triggerAttackRelease("D4", "8n", now + 0.25);
+  synth.triggerAttackRelease("E4", "8n", now + 0.5);
+  synth.triggerAttackRelease("F4", "8n", now + 0.75);
+  synth.triggerAttackRelease("G4", "8n", now + 1.0);
+  synth.triggerAttackRelease("A4", "8n", now + 1.25);
+  synth.triggerAttackRelease("B4", "8n", now + 1.5);
+  synth.triggerAttackRelease("c5", "2n", now + 1.75);
 });

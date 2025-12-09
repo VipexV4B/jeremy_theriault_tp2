@@ -27,61 +27,47 @@
     <script type="module" src="./src/js/bootstrap.js" defer></script>
     <script type="module" src="./src/js/maplibre.js" defer></script>
     <script type="module" src="./src/js/vfx.js" defer></script>
-    <script type="module" src="./src/js/animejs.js" defer></script>
     <script type="module" src="./src/js/tonejs.js" defer></script>
     <script type="module" src="./src/js/zdog.js" defer></script>
   </head>
   <body>
-    <div class="neon-bg"></div>
+    <div class="layout">
+      <!-- RECTANGLE GAUCHE -->
+      <div class="left-panel neon-box">
+        <canvas class="zdog-canvas"></canvas>
 
-    <div class="dashboard">
-      <div class="box graph">
+        <div class="radar">
+          <h2>Vaisseau Alien</h2>
+          <div class="sonar">
+            <div class="obj obj1"></div>
+            <div class="balai"></div>
+            <div class="onde"></div>
+          </div>
+        </div>
+        <div class="health-system">
+          <div class="health-label">HEALTH</div>
+
+          <div class="health-bar">
+            <div class="health-value"></div>
+          </div>
+
+          <div class="health-percent">87%</div>
+        </div>
+      </div>
+
+      <!-- ZONE CENTRALE (Carte, Zdog, Maps, etc.) -->
+      <div class="center-panel neon-box" id="carte"></div>
+
+      <!-- RECTANGLE A DROITE -->
+      <div class="right-panel neon-box musique">
+        <h2 class="bi bi-music-note">Musique</h2>
+        <button>Play</button>
+      </div>
+
+      <!-- RECTANGLE EN BAS -->
+      <div class="bottom-panel neon-box f-flex">
         <canvas class="graph"></canvas>
       </div>
-
-      <div class="circle-container">
-        <div class="cricle big chart-container">
-          <canvas></canvas>
-        </div>
-        <div class="d-flex circle-container-small">
-          <div class="circle small bi bi-heart"></div>
-          <div class="circle small"></div>
-        </div>
-      </div>
-
-      <div class="box">
-        <select id="instrument" class="form-select my-2">
-          <option value="Synth">Synth (par défaut)</option>
-          <option value="AMSynth">AMSynth</option>
-          <option value="FMSynth">FMSynth</option>
-          <option value="DuoSynth">DuoSynth</option>
-          <option value="MonoSynth">MonoSynth</option>
-          <option value="MembraneSynth">MembraneSynth</option>
-          <option value="MetalSynth">MetalSynth</option>
-          <option value="PluckSynth">PluckSynth</option>
-        </select>
-
-        <button class="btn btn-primary"><i class="bi bi-play-circle"></i> Play</button>
-      </div>
-
-      <div class="box">
-        <canvas class="zdog-canvas"></canvas>
-      </div>
-      <div class="box anim-box">
-        <div class="dot"></div>
-      </div>
-
-      <div class="box middle chart-container">
-        <canvas class="chart-container"></canvas>
-      </div>
-
-      <div class="box">
-        <canvas class="chart"></canvas>
-      </div>
-
-      <div class="box long">aa</div>
-
-      <div class="box" id="carte"></div>
     </div>
   </body>
 </html>

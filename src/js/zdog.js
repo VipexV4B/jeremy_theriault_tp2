@@ -1,4 +1,4 @@
-import Zdog from "zzz";
+import Zdog from "https://esm.sh/zdog";
 
 const illo = new Zdog.Illustration({
   element: ".zdog-canvas",
@@ -7,9 +7,9 @@ const illo = new Zdog.Illustration({
 
 const circ = new Zdog.Ellipse({
   addTo: illo,
-  diameter: 270,
-  stroke: 50,
-  color: "rgba(20, 20, 191, 0.27)"
+  diameter: 100,
+  stroke: 30,
+  color: "rgba(0, 77, 100, 1)"
 });
 
 function animate() {

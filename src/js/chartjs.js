@@ -1,5 +1,6 @@
 import Chart from "https://esm.sh/chart.js/auto";
 import "https://esm.sh/chartjs-adapter-date-fns";
+import {animate} from "animejs";
 
 const series = [
   { x: "2025-04-28T00:00:00", y: 10225.8 },
@@ -49,12 +50,12 @@ const datas = [
   { x: "2025-05-08T00:00:00", y: 276700.7 },
 ];
 
-let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
+let graphiques = new Chart(document.querySelector(".graph").getContext("2d"), {
   type: "line",
   data: {
     datasets: [
       {
-        label: "Battlefield 6",
+        label: "Habitants de Winnipeg",
         data: datas,
         borderWidth: 2,
         tension: 0.4, // 0 linéaire, 0.5 smooth
@@ -64,7 +65,7 @@ let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
         pointRadius: 0,
       },
       {
-        label: "ARC Raiders",
+        label: "Survivant",
         data: series,
         borderWidth: 2,
         tension: 0.4, // 0 linéaire, 0.5 smooth
@@ -82,7 +83,7 @@ let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
     plugins: {
       title: {
         display: true,
-        text: "Joueurs simultanés (SteamDB)",
+        text: "Guerre de territoire",
       },
       // legend: { display: false }
     },
@@ -135,7 +136,7 @@ let graphiques = new Chart(document.querySelector("canvas").getContext("2d"), {
 
         title: {
           display: true,
-          text: "Joueurs simultanés",
+          text: "population",
           color: "#fff",
           font: {
             family: "Arial",
@@ -184,92 +185,3 @@ setInterval(() => {
   }
   graphiques.update();
 }, 100);
-
-const data = [];
-
-// Ici on ajoute des données bidons dans le tableau
-for (let i = 0; i < 10; i++) {
-  data.push({
-    x: i * 1000 + 1000,
-    y: Math.floor(Math.random() * 2000),
-  });
-}
-
-let graphique = new Chart(document.querySelector(".chart").getContext("2d"), {
-  type: "line",
-  data: {
-    datasets: [
-      {
-        label: "-",
-        data: data,
-        borderWidth: 2,
-        tension: 0.3, // 0 linéaire, 0.5 smooth
-        fill: true,
-        borderColor: "rgba(239, 85, 82, 1)",
-        backgroundColor: "rgba(239, 85, 82, 0)",
-        pointRadius: 0,
-      },
-    ],
-  },
-  options: {
-    animation: {
-      duration: 10000, // 20x plus lent que la modification
-    },
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      title: {
-        display: false,
-      },
-      legend: { display: false },
-    },
-    scales: {
-      x: {
-        type: "linear",
-        title: {
-          display: false,
-        },
-        grid: {
-          display: false,
-        },
-        ticks: {
-          display: false,
-        },
-      },
-
-      y: {
-        type: "linear",
-        title: {
-          display: false,
-        },
-        grid: {
-          display: false,
-        },
-        ticks: {
-          display: false,
-          maxTicksLimit: 3,
-        },
-      },
-    },
-  },
-});
-
-// En événement
-document.body.addEventListener("click", () => {
-  for (const ds of graphique.data.datasets) {
-    for (let i = 0; i < ds.data.length; i++) {
-      ds.data[i].y = Math.round(Math.random() * 2000);
-    }
-  }
-  graphique.update();
-});
-
-// En temps
-setInterval(() => {
-  for (let ds of graphique.data.datasets) {
-    for (let i = 0; i < ds.data.length; i++) {
-      ds.data[i].y = Math.round(Math.random() * 50000);
-    }
-  }
-  graphique.update();
-}, 1000);
