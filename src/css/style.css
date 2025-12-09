@@ -35,10 +35,9 @@ body {
 /* --- PANELS --- */
 .left-panel {
   grid-area: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .center-panel {
@@ -53,53 +52,51 @@ body {
   grid-area: bottom;
 }
 
-
 .musique {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: rgb(71, 83, 255);
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(71, 83, 255);
 }
 
 .musique button {
-    background-color: #009dff;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
+  background-color: #009dff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .graph {
-    width: 10%;
-    height: 10% ;
+  width: 10%;
+  height: 10%;
 }
 
-.radar{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: rgb(71, 83, 255);
+.radar {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(71, 83, 255);
 }
 /* ---- SONAR ---- */
 .sonar {
-    width: 100%;
-    height: 100%;
-    min-height: 210px;
-    border-radius: 50%;
-    background: rgba(0, 50, 0, 0.5);
-    box-shadow: 0 0 15px #0022ff;
-    border: 2px solid rgba(98, 0, 255, 0.4);
-    position: relative;
-    overflow: hidden;
-}   
+  width: 100%;
+  height: 100%;
+  min-height: 210px;
+  border-radius: 50%;
+  background: rgba(0, 50, 0, 0.5);
+  box-shadow: 0 0 15px #0022ff;
+  border: 2px solid rgba(98, 0, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
 
 /* Balai radar */
 .balai {
@@ -140,53 +137,57 @@ body {
 
 /* Container sous le radar */
 .health-system {
-    width: 110px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    font-family: "Orbitron", sans-serif;
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: "Orbitron", sans-serif;
 }
 
 /* Texte “HEALTH” */
 .health-label {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #00ff88;
-    text-shadow: 0 0 6px #00ff88;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #00ff88;
+  text-shadow: 0 0 6px #00ff88;
 }
 
 /* Cadre de la barre */
 .health-bar {
-    width: 100%;
-    height: 12px;
-    border: 2px solid #00ff55;
-    box-shadow: 0 0 10px #00ff55;
-    border-radius: 6px;
-    overflow: hidden;
-    background: rgba(0, 40, 0, 0.4);
-    position: relative;
+  width: 100%;
+  height: 12px;
+  border: 2px solid #00ff55;
+  box-shadow: 0 0 10px #00ff55;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(0, 40, 0, 0.4);
+  position: relative;
 }
 
 /* Valeur de vie */
 .health-value {
-    height: 100%;
-    width: 87%; /* MODIFIE LA VIE ICI */
-    background: linear-gradient(90deg, #00ff99, #00ff33);
-    box-shadow: 0 0 15px #00ff55;
-    animation: healthPulse 1.2s infinite alternate;
+  height: 100%;
+  width: 87%; /* MODIFIE LA VIE ICI */
+  background: linear-gradient(90deg, #00ff99, #00ff33);
+  box-shadow: 0 0 15px #00ff55;
+  animation: healthPulse 1.2s infinite alternate;
 }
 
 /* Animation néon */
 @keyframes healthPulse {
-    from { filter: brightness(1); }
-    to   { filter: brightness(1.5); }
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(1.5);
+  }
 }
 
 /* Pourcentage */
 .health-percent {
-    font-size: 14px;
-    color: #00ff55;
-    text-shadow: 0 0 8px #00ff55;
+  font-size: 14px;
+  color: #00ff55;
+  text-shadow: 0 0 8px #00ff55;
 }
